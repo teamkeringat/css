@@ -25,7 +25,7 @@ html.ng-light .bh{border-color:#d8cfa8}
 .msg{padding:14px;border-radius:12px;background:rgba(0,0,0,.25);text-align:center}html.ng-light .msg{background:#fff}
 
 /* Pencarian */
-.srch-wrap{position:relative;flex:1 1 100%}
+.srch-wrap{position:relative;flex:1 1 0;min-width:0}
 .srch-wrap input{width:100%}
 .sg{display:none;margin-top:4px;border:1px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;position:absolute;z-index:10;width:100%;background:#2a3829}
 html.ng-light .sg{background:#fff;border-color:#d8cfa8}
