@@ -1,5 +1,5 @@
 /* =========================================================
-   AH.CSS — Doa Al-Fatihah (FINAL FIX)
+   AH.CSS — Doa Al-Fatihah (Versi Stabil)
    ========================================================= */
 
 /* ===== FONT ARAB ===== */
@@ -14,66 +14,18 @@ body{padding:10px}
 *{box-sizing:border-box}
 html.ng-light,html.ng-light body{background:#fffdf4;color:#222;color-scheme:light}
 
-/* ===== BAR KONTROL (Paksa berjejer kiri-kanan) ===== */
-#app .bar{
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 8px !important;
-    margin-bottom: 10px !important;
-    width: 100% !important;
-    align-items: stretch !important;
-}
+/* ===== BAR KONTROL ===== */
+.bar{display:flex;gap:8px;flex-wrap:nowrap;margin-bottom:10px}
+input,select,button{font:inherit;color:#e6ecdc;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:9px 10px}
+html.ng-light input,html.ng-light select,html.ng-light button{color:#222;background:rgba(0,0,0,.05);border-color:#d8cfa8}
+select{flex:1 1 0;min-width:0;text-overflow:ellipsis}
+select option{color:#222}
+input{flex:1 1 0;min-width:0}
+button{cursor:pointer}
 
-/* ===== INPUT & SELECT (Paksa rapi) ===== */
-#app input, #app select, #app button{
-    font: inherit !important;
-    color: #e6ecdc !important;
-    background: rgba(255,255,255,.08) !important;
-    border: 1px solid rgba(255,255,255,.22) !important;
-    border-radius: 10px !important;
-    padding: 9px 10px !important;
-    box-sizing: border-box !important;
-}
-
-html.ng-light #app input, 
-html.ng-light #app select, 
-html.ng-light #app button{
-    color: #222 !important;
-    background: rgba(0,0,0,.05) !important;
-    border-color: #d8cfa8 !important;
-}
-
-#app select{
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-    text-overflow: ellipsis !important;
-}
-#app select option{color:#222}
-#app input{flex: 1 1 0 !important;min-width:0 !important}
-#app button{cursor:pointer}
-
-.srch-wrap{
-    position: relative !important;
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-}
-.srch-wrap input{width: 100% !important}
-
-/* ===== DESAIN ISI DOA (Kotak anti-runtuh) ===== */
-.ic{
-    padding: 12px !important;
-    border-radius: 12px !important;
-    background: rgba(0,0,0,.25) !important;
-    margin-bottom: 10px !important;
-    border: 1px solid rgba(255,255,255,.1) !important;
-    overflow: hidden !important; /* Kunci biar gak tumpang tindih */
-}
-html.ng-light .ic{
-    background: #fff !important;
-    border: 1px solid #e0d8b0 !important; /* Garis tepi di mode terang */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.03) !important;
-}
+/* ===== DESAIN ISI DOA ===== */
+.ic{padding:12px;border-radius:12px;background:rgba(0,0,0,.25);margin-bottom:10px}
+html.ng-light .ic{background:#fff}
 
 .bh{font-weight:700;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15)}
 html.ng-light .bh{border-color:#d8cfa8}
@@ -88,7 +40,7 @@ html.ng-light .lt{color:#6b5a1a}
 .tn{margin-top:8px;font-size:calc(.8rem * var(--z,1));opacity:.7;line-height:1.45;white-space:pre-wrap}
 
 .msg{padding:14px;border-radius:12px;background:rgba(0,0,0,.25);text-align:center}
-html.ng-light .msg{background:#fff; border:1px solid #e0d8b0;}
+html.ng-light .msg{background:#fff}
 
 .pj{font-weight:700;margin:12px 0 6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15);text-align:justify;text-justify:inter-word}
 html.ng-light .pj{border-color:#d8cfa8}
@@ -96,16 +48,18 @@ html.ng-light .pj{border-color:#d8cfa8}
 .pg{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap;text-align:justify;text-justify:inter-word}
 
 /* ===== PENCARIAN ===== */
+.srch-wrap{position:relative;flex:1 1 0;min-width:0}
+.srch-wrap input{width:100%}
+
 .sg{display:none;margin-top:4px;border:1px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;position:absolute;z-index:10;width:100%;background:#2a3829}
 html.ng-light .sg{background:#fff;border-color:#d8cfa8}
 .sg.on{display:block}
-.sg .li{margin:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08); padding: 9px 10px; cursor: pointer;}
+.sg .li{margin:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08)}
 
-select.ph{border-color:#c9b86a !important;color:#c9b86a !important;font-weight:700}
-html.ng-light select.ph{color:#6b5a1a !important;border-color:#b8a24a !important}
+select.ph{border-color:#c9b86a;color:#c9b86a;font-weight:700}
+html.ng-light select.ph{color:#6b5a1a;border-color:#b8a24a}
 
 /* ===== MODE ARAB SAJA ===== */
-/* Sembunyikan teks latin */
 html.ng-arab .lt,
 html.ng-arab .tr,
 html.ng-arab .tn,
@@ -116,26 +70,18 @@ html.ng-arab .pj {
     display: none !important;
 }
 
-/* Paksa kotak pembungkus tetap kokoh dan rata kanan-kiri */
-html.ng-arab .ic {
-    display: block !important;
-    overflow: hidden !important;
-    text-align: justify !important;
-    text-justify: inter-word !important;
-    text-last-align: right !important;
-    line-height: 2 !important;
-}
-
-/* Teks Arab menyatu (inline) */
-html.ng-arab .ar {
-    display: inline !important;
+/* Teks Arab: wrap otomatis + justify (rata kanan-kiri) */
+html.ng-arab .ar{
     white-space: normal !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 2 !important;
+    margin: 0;
+    line-height: 2;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: right;
 }
 
-/* Spasi antar ayat biar tidak nempel */
-html.ng-arab .ar::after {
-    content: " " !important;
+/* Ayat-ayat menyatu jadi satu blok panjang */
+html.ng-arab .ic{
+    margin-bottom: 4px;
+    padding: 8px 12px;
 }
