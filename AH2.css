@@ -10,22 +10,22 @@ html.ng-arab .pj {
     display: none !important;
 }
 
-/* Kotak pembungkus: atur justify di sini, tapi JANGAN ubah layout kotak */
-html.ng-arab .ic{
-    direction: rtl;
-    text-align: justify;
-    text-justify: inter-word;
-    text-last-align: right;
-    line-height: 2;
-    /* padding & margin & background TETAP dari .ic asli */
-}
-
-/* Ayat jadi "transparan" → semua teks Arab menyatu di dalam .ic */
+/* Setiap ayat jadi inline → semua menyatu jadi satu paragraf */
 html.ng-arab .ar{
-    display: contents;
+    display: inline;
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+    line-height: 2;
 }
 
 /* Beri spasi antar ayat (biar tidak nempel) */
 html.ng-arab .ar::after{
     content: " ";
+}
+
+/* Justify di parent (karena .ar sudah inline) */
+html.ng-arab .ic{
+    text-align: justify;
+    text-justify: inter-word;
 }
