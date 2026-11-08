@@ -10,7 +10,36 @@ html.ng-arab .pj {
     display: none !important;
 }
 
-/* Setiap ayat jadi inline → semua menyatu jadi satu paragraf */
+/* 1. Kunci tampilan Bar & Pencarian agar tidak rusak */
+html.ng-arab .bar {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+}
+html.ng-arab input,
+html.ng-arab select {
+    border-radius: 10px !important;
+    padding: 9px 10px !important;
+    font: inherit !important;
+}
+
+/* 2. Paksa kotak .ic agar membungkus teks yang menyatu (tidak runtuh) */
+html.ng-arab .ic{
+    display: flow-root; /* Ini kuncinya agar kotak tidak hilang */
+    text-align: justify;
+    text-justify: inter-word;
+    text-last-align: right;
+    line-height: 2;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(0,0,0,.25); /* Paksa background kotak gelap muncul */
+}
+html.ng-light.ng-arab .ic {
+    background: #fff; /* Background putih kalau mode terang */
+}
+
+/* 3. Teks Arab menyatu (inline) */
 html.ng-arab .ar{
     display: inline;
     white-space: normal;
@@ -18,14 +47,6 @@ html.ng-arab .ar{
     padding: 0;
     line-height: 2;
 }
-
-/* Beri spasi antar ayat (biar tidak nempel) */
 html.ng-arab .ar::after{
-    content: " ";
-}
-
-/* Justify di parent (karena .ar sudah inline) */
-html.ng-arab .ic{
-    text-align: justify;
-    text-justify: inter-word;
+    content: " "; /* Spasi antar ayat */
 }
