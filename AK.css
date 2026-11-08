@@ -1,78 +1,233 @@
+/* ============================================================
+   AK.CSS - REVISI BOSS (Sesuai MesinReader Baru)
+   ============================================================ */
+
+/* 1. FONT ARAB */
 @font-face{font-family:Arab1;src:url('https://teamkeringat.github.io/Files/arbutsman.otf') format('opentype');font-display:swap}
 @font-face{font-family:Arab2;src:url('https://teamkeringat.github.io/Files/arbmisbah.ttf') format('truetype');font-display:swap}
 @font-face{font-family:Arab3;src:url('https://teamkeringat.github.io/Files/arbquran.ttf') format('truetype');font-display:swap}
 @font-face{font-family:Arab4;src:url('https://teamkeringat.github.io/Files/arbnaskh.otf') format('opentype');font-display:swap}
-html,body{background:#18241a;color:#e6ecdc;color-scheme:dark}body{padding:10px}*{box-sizing:border-box}
-html.ng-light,html.ng-light body{background:#fffdf4;color:#222;color-scheme:light}
-.bar{display:flex;gap:8px;flex-wrap:nowrap;margin-bottom:10px}
-input,select,button{font:inherit;color:#e6ecdc;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:9px 10px}
-html.ng-light input,html.ng-light select,html.ng-light button{color:#222;background:rgba(0,0,0,.05);border-color:#d8cfa8}
-select{flex:1 1 0;min-width:0;text-overflow:ellipsis}select option{color:#222}
-input{flex:1 1 0;min-width:0}button{cursor:pointer}
 
-/* Desain isi */
-.ic{padding:12px;border-radius:12px;background:rgba(0,0,0,.25);margin-bottom:10px}html.ng-light .ic{background:#fff}
-.ar{direction:rtl;text-align:right;font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);font-size:calc(1.75rem * var(--z,1));line-height:2.3;color:#eef2e6;white-space:pre-wrap}
-html.ng-light .ar{color:#222}
-.ap{direction:rtl;text-align:right;font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);font-size:calc(1.1rem * var(--z,1));line-height:1.9;opacity:.85}
-html.ng-light .ap{color:#222}
-.lt{color:#c9bd8a;font-size:calc(.9rem * var(--z,1));font-style:italic;margin:6px 0;line-height:1.5;white-space:pre-wrap}
-html.ng-light .lt{color:#6b5a1a}
-.tr{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap}
-.tn{margin-top:8px;font-size:calc(.8rem * var(--z,1));opacity:.7;line-height:1.45;white-space:pre-wrap}
-.bh{font-weight:700;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15)}
-html.ng-light .bh{border-color:#d8cfa8}
-.msg{padding:14px;border-radius:12px;background:rgba(0,0,0,.25);text-align:center}html.ng-light .msg{background:#fff}
+/* 2. DASAR & TEMA (Gelap/Terang) */
+:root {
+    --z: 1; /* Pengatur ukuran font dari Ngelingan */
+    --arab: Arab1, 'Amiri', 'Traditional Arabic', serif;
+}
+html, body { 
+    background: #18241a; 
+    color: #e6ecdc; 
+    color-scheme: dark; 
+}
+html.ng-light, html.ng-light body { 
+    background: #fffdf4; 
+    color: #222; 
+    color-scheme: light; 
+}
+body { 
+    padding: 10px; 
+    margin: 0; 
+    font-family: system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; }
 
-/* Pencarian */
-.srch-wrap{position:relative;flex:1 1 0;min-width:0}
-.srch-wrap input{width:100%}
-.sg{display:none;margin-top:4px;border:1px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;position:absolute;z-index:10;width:100%;background:#2a3829}
-html.ng-light .sg{background:#fff;border-color:#d8cfa8}
-.sg.on{display:block}.sg .li{margin:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08)}
-select.ph{border-color:#c9b86a;color:#c9b86a;font-weight:700}html.ng-light select.ph{color:#6b5a1a;border-color:#b8a24a}
+/* 3. KOTAK PENCARIAN & PILIH (KIRI KANAN SAMA LEBAR) */
+.bar { 
+    display: flex; 
+    gap: 10px; 
+    flex-wrap: nowrap; 
+    margin-bottom: 15px; 
+    width: 100%;
+}
+#NF { 
+    flex: 1 1 50%; 
+    width: 50%;
+    min-width: 0; 
+    text-overflow: ellipsis; 
+}
+.srch-wrap { 
+    flex: 1 1 50%; 
+    width: 50%;
+    min-width: 0; 
+    position: relative; 
+}
+.srch-wrap input { 
+    width: 100%; 
+}
+input, select, button { 
+    font: inherit; 
+    color: #e6ecdc; 
+    background: rgba(255,255,255,.08); 
+    border: 1px solid rgba(255,255,255,.22); 
+    border-radius: 10px; 
+    padding: 10px; 
+}
+html.ng-light input, html.ng-light select, html.ng-light button { 
+    color: #222; 
+    background: rgba(0,0,0,.05); 
+    border-color: #d8cfa8; 
+}
+select option { color: #222; }
+button { cursor: pointer; }
 
-/* ==== DESAIN KOTAK JUDUL ==== */
+select.ph { 
+    border-color: #c9b86a; 
+    color: #c9b86a; 
+    font-weight: 700; 
+}
+html.ng-light select.ph { 
+    color: #6b5a1a; 
+    border-color: #b8a24a; 
+}
+
+/* 4. DROPDOWN SARAN PENCARIAN */
+.sg { 
+    display: none; 
+    margin-top: 5px; 
+    border: 1px solid rgba(255,255,255,.18); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: absolute; 
+    z-index: 10; 
+    width: 100%; 
+    background: #2a3829; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+html.ng-light .sg { 
+    background: #fff; 
+    border-color: #d8cfa8; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.sg.on { display: block; }
+.sg .li { 
+    display: block; 
+    width: 100%;
+    text-align: left;
+    padding: 10px; 
+    margin: 0; 
+    border-radius: 0; 
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.08); 
+}
+html.ng-light .sg .li { border-bottom-color: #eee; }
+.sg .li:hover { background: rgba(255,255,255,.1); }
+html.ng-light .sg .li:hover { background: rgba(0,0,0,.05); }
+.sg .li .gp { font-size: 0.8rem; opacity: 0.7; margin-top: 4px; }
+
+/* 5. KOTAK UTAMA (Halaman Isi) */
+#H { margin-top: 10px; }
+.msg { 
+    padding: 20px; 
+    border-radius: 12px; 
+    background: rgba(0,0,0,.25); 
+    text-align: center; 
+    font-style: italic;
+}
+html.ng-light .msg { background: #fff; }
+
+/* Kotak Info/Judul (Warna Emas/Kuning) */
+.ic { 
+    padding: 15px; 
+    border-radius: 12px; 
+    background: rgba(0,0,0,.25); 
+    margin-bottom: 15px; 
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.1);
+}
+html.ng-light .ic { 
+    background: #f9f6ea; 
+    border-color: #d8cfa8;
+}
+.bh { 
+    font-size: calc(1.2rem * var(--z,1)); 
+    font-weight: 700; 
+    color: #c9b86a; 
+    margin-bottom: 5px;
+}
+html.ng-light .bh { color: #6b5a1a; }
+.tn { 
+    font-size: calc(0.85rem * var(--z,1)); 
+    opacity: 0.8; 
+    line-height: 1.4; 
+}
+
+/* Kotak Pembungkus Bab */
 .dd {
-    margin-bottom: 12px !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(255,255,255,.15) !important;
-    background: rgba(0,0,0,.15) !important;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(0,0,0,.15);
+    overflow: hidden;
 }
 html.ng-light .dd {
-    border-color: #d8cfa8 !important;
-    background: #f9f6ea !important;
+    border-color: #d8cfa8;
+    background: #fff;
 }
 .hd {
-    padding: 12px 14px !important;
-    background: rgba(255,255,255,.03);
-    border-radius: 12px;
+    padding: 12px 15px;
+    background: rgba(255,255,255,.05);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    text-align: center;
 }
 html.ng-light .hd {
     background: rgba(0,0,0,.02);
+    border-bottom-color: #eee;
 }
 .nm {
-    font-weight: 700 !important;
-    color: #c9b86a !important;
+    font-weight: 700;
+    font-size: calc(1.1rem * var(--z,1));
+    color: #e6ecdc;
 }
-html.ng-light .nm {
-    color: #6b5a1a !important;
-}
-.ch {
-    display: none; /* Sembunyikan panah */
-}
+html.ng-light .nm { color: #222; }
 .bd {
-    padding: 0 14px 14px 14px !important;
-    margin-top: 4px;
+    padding: 15px;
 }
 
-/* Sembunyikan teks Indonesia saat mode Arab saja */
-html.ng-arab .lt, 
+/* 6. TEKS ARAB & TERJEMAHAN */
+.ar {
+    direction: rtl;
+    text-align: right;
+    font-family: var(--arab);
+    font-size: calc(1.75rem * var(--z,1));
+    line-height: 2.2;
+    color: #eef2e6;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
+html.ng-light .ar { color: #222; }
+
+.tr {
+    font-size: calc(1rem * var(--z,1));
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 20px; /* Jarak antar baris Arab+Arti */
+    color: #b0c0a0;
+}
+html.ng-light .tr { color: #444; }
+
+/* Kotak Penjelasan di Akhir */
+.pj {
+    font-size: calc(0.9rem * var(--z,1));
+    line-height: 1.5;
+    background: rgba(255,255,255,.05);
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #c9b86a;
+}
+html.ng-light .pj {
+    background: rgba(0,0,0,.03);
+    border-left-color: #6b5a1a;
+}
+
+/* ============================================================
+   FITUR NGELINGAN (Mode Arab Saja)
+   ============================================================ */
+/* Sembunyikan arti, penjelasan, dan info teks jika mode Arab aktif */
 html.ng-arab .tr, 
-html.ng-arab .tn, 
-html.ng-arab .pg,
-html.ng-arab .bh,
-html.ng-arab .ap,
-html.ng-arab .pj {
-    display: none !important;
+html.ng-arab .pj, 
+html.ng-arab .tn { 
+    display: none !important; 
+}
+/* Rapatkan jarak Arab jika tanpa arti */
+html.ng-arab .ar {
+    margin-bottom: 5px;
 }
