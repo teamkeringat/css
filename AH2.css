@@ -1,5 +1,5 @@
 /* ===== MODE ARAB SAJA ===== */
-/* Sembunyikan semua teks non-Arab */
+/* Sembunyikan teks non-Arab */
 html.ng-arab .lt,
 html.ng-arab .tr,
 html.ng-arab .tn,
@@ -10,27 +10,22 @@ html.ng-arab .pj {
     display: none !important;
 }
 
-/* Wadah pembungkus: jadi justify (karena justify harus di parent block) */
+/* Kotak pembungkus: atur justify di sini, tapi JANGAN ubah layout kotak */
 html.ng-arab .ic{
-    margin-bottom: 4px;
-    padding: 8px 12px;
     direction: rtl;
     text-align: justify;
     text-justify: inter-word;
-    text-align-last: right;
+    text-last-align: right;
     line-height: 2;
+    /* padding & margin & background TETAP dari .ic asli */
 }
 
-/* Tiap ayat jadi INLINE → semua menyatu jadi satu paragraf */
+/* Ayat jadi "transparan" → semua teks Arab menyatu di dalam .ic */
 html.ng-arab .ar{
-    display: inline;
-    white-space: normal;
-    margin: 0;
-    line-height: 2;
-    font-size: calc(1.75rem * var(--z,1));
+    display: contents;
 }
 
-/* Beri spasi antar ayat (karena inline jadi nempel) */
+/* Beri spasi antar ayat (biar tidak nempel) */
 html.ng-arab .ar::after{
     content: " ";
 }
