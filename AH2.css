@@ -1,68 +1,5 @@
-/* =========================================================
-   AH.CSS — Doa Al-Fatihah (dipakai Pemanggil1 & Pemanggil2)
-   ========================================================= */
-
-/* ===== FONT ARAB ===== */
-@font-face{font-family:Arab1;src:url('https://teamkeringat.github.io/Files/arbutsman.otf') format('opentype');font-display:swap}
-@font-face{font-family:Arab2;src:url('https://teamkeringat.github.io/Files/arbmisbah.ttf') format('truetype');font-display:swap}
-@font-face{font-family:Arab3;src:url('https://teamkeringat.github.io/Files/arbquran.ttf') format('truetype');font-display:swap}
-@font-face{font-family:Arab4;src:url('https://teamkeringat.github.io/Files/arbnaskh.otf') format('opentype');font-display:swap}
-
-/* ===== DASAR ===== */
-html,body{background:#18241a;color:#e6ecdc;color-scheme:dark}
-body{padding:10px}
-*{box-sizing:border-box}
-html.ng-light,html.ng-light body{background:#fffdf4;color:#222;color-scheme:light}
-
-/* ===== BAR KONTROL ===== */
-.bar{display:flex;gap:8px;flex-wrap:nowrap;margin-bottom:10px}
-input,select,button{font:inherit;color:#e6ecdc;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:9px 10px}
-html.ng-light input,html.ng-light select,html.ng-light button{color:#222;background:rgba(0,0,0,.05);border-color:#d8cfa8}
-select{flex:1 1 0;min-width:0;text-overflow:ellipsis}
-select option{color:#222}
-input{flex:1 1 0;min-width:0}
-button{cursor:pointer}
-
-/* ===== DESAIN ISI DOA ===== */
-.ic{padding:12px;border-radius:12px;background:rgba(0,0,0,.25);margin-bottom:10px}
-html.ng-light .ic{background:#fff}
-
-.bh{font-weight:700;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15)}
-html.ng-light .bh{border-color:#d8cfa8}
-
-.ar{direction:rtl;text-align:right;font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);font-size:calc(1.75rem * var(--z,1));line-height:2.3;color:#eef2e6;white-space:pre-wrap}
-html.ng-light .ar{color:#222}
-
-.lt{color:#c9bd8a;font-size:calc(.9rem * var(--z,1));font-style:italic;margin:6px 0;line-height:1.5;white-space:pre-wrap}
-html.ng-light .lt{color:#6b5a1a}
-
-.tr{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap}
-
-.tn{margin-top:8px;font-size:calc(.8rem * var(--z,1));opacity:.7;line-height:1.45;white-space:pre-wrap}
-
-.msg{padding:14px;border-radius:12px;background:rgba(0,0,0,.25);text-align:center}
-html.ng-light .msg{background:#fff}
-
-/* ===== JUDUL "PENJELASAN" ===== */
-.pj{font-weight:700;margin:12px 0 6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15);text-align:justify;text-justify:inter-word}
-html.ng-light .pj{border-color:#d8cfa8}
-
-/* ===== ISI PENJELASAN ===== */
-.pg{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap;text-align:justify;text-justify:inter-word}
-
-/* ===== PENCARIAN ===== */
-.srch-wrap{position:relative;flex:1 1 0;min-width:0}
-.srch-wrap input{width:100%}
-
-.sg{display:none;margin-top:4px;border:1px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;position:absolute;z-index:10;width:100%;background:#2a3829}
-html.ng-light .sg{background:#fff;border-color:#d8cfa8}
-.sg.on{display:block}
-.sg .li{margin:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08)}
-
-select.ph{border-color:#c9b86a;color:#c9b86a;font-weight:700}
-html.ng-light select.ph{color:#6b5a1a;border-color:#b8a24a}
-
 /* ===== MODE ARAB SAJA ===== */
+/* Sembunyikan semua teks non-Arab */
 html.ng-arab .lt,
 html.ng-arab .tr,
 html.ng-arab .tn,
@@ -73,19 +10,27 @@ html.ng-arab .pj {
     display: none !important;
 }
 
-/* Teks Arab: wrap otomatis + justify (rata kanan-kiri) */
-html.ng-arab .ar{
-    white-space: normal;
-    margin: 0;
-    line-height: 2;
-    text-align: justify;
-    text-justify: inter-word;
-    text-align-last: right;
-}
-
-/* Ayat-ayat menyatu jadi satu blok panjang */
+/* Wadah pembungkus: jadi justify (karena justify harus di parent block) */
 html.ng-arab .ic{
     margin-bottom: 4px;
     padding: 8px 12px;
+    direction: rtl;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: right;
+    line-height: 2;
 }
 
+/* Tiap ayat jadi INLINE → semua menyatu jadi satu paragraf */
+html.ng-arab .ar{
+    display: inline;
+    white-space: normal;
+    margin: 0;
+    line-height: 2;
+    font-size: calc(1.75rem * var(--z,1));
+}
+
+/* Beri spasi antar ayat (karena inline jadi nempel) */
+html.ng-arab .ar::after{
+    content: " ";
+}
