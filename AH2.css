@@ -1,5 +1,111 @@
+/* =========================================================
+   AH.CSS — Doa Al-Fatihah (FINAL FIX)
+   ========================================================= */
+
+/* ===== FONT ARAB ===== */
+@font-face{font-family:Arab1;src:url('https://teamkeringat.github.io/Files/arbutsman.otf') format('opentype');font-display:swap}
+@font-face{font-family:Arab2;src:url('https://teamkeringat.github.io/Files/arbmisbah.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Arab3;src:url('https://teamkeringat.github.io/Files/arbquran.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Arab4;src:url('https://teamkeringat.github.io/Files/arbnaskh.otf') format('opentype');font-display:swap}
+
+/* ===== DASAR ===== */
+html,body{background:#18241a;color:#e6ecdc;color-scheme:dark}
+body{padding:10px}
+*{box-sizing:border-box}
+html.ng-light,html.ng-light body{background:#fffdf4;color:#222;color-scheme:light}
+
+/* ===== BAR KONTROL (Paksa berjejer kiri-kanan) ===== */
+#app .bar{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+    width: 100% !important;
+    align-items: stretch !important;
+}
+
+/* ===== INPUT & SELECT (Paksa rapi) ===== */
+#app input, #app select, #app button{
+    font: inherit !important;
+    color: #e6ecdc !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    border-radius: 10px !important;
+    padding: 9px 10px !important;
+    box-sizing: border-box !important;
+}
+
+html.ng-light #app input, 
+html.ng-light #app select, 
+html.ng-light #app button{
+    color: #222 !important;
+    background: rgba(0,0,0,.05) !important;
+    border-color: #d8cfa8 !important;
+}
+
+#app select{
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    text-overflow: ellipsis !important;
+}
+#app select option{color:#222}
+#app input{flex: 1 1 0 !important;min-width:0 !important}
+#app button{cursor:pointer}
+
+.srch-wrap{
+    position: relative !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+}
+.srch-wrap input{width: 100% !important}
+
+/* ===== DESAIN ISI DOA (Kotak anti-runtuh) ===== */
+.ic{
+    padding: 12px !important;
+    border-radius: 12px !important;
+    background: rgba(0,0,0,.25) !important;
+    margin-bottom: 10px !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    overflow: hidden !important; /* Kunci biar gak tumpang tindih */
+}
+html.ng-light .ic{
+    background: #fff !important;
+    border: 1px solid #e0d8b0 !important; /* Garis tepi di mode terang */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03) !important;
+}
+
+.bh{font-weight:700;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15)}
+html.ng-light .bh{border-color:#d8cfa8}
+
+.ar{direction:rtl;text-align:right;font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);font-size:calc(1.75rem * var(--z,1));line-height:2.3;color:#eef2e6;white-space:pre-wrap}
+html.ng-light .ar{color:#222}
+
+.lt{color:#c9bd8a;font-size:calc(.9rem * var(--z,1));font-style:italic;margin:6px 0;line-height:1.5;white-space:pre-wrap}
+html.ng-light .lt{color:#6b5a1a}
+
+.tr{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap}
+.tn{margin-top:8px;font-size:calc(.8rem * var(--z,1));opacity:.7;line-height:1.45;white-space:pre-wrap}
+
+.msg{padding:14px;border-radius:12px;background:rgba(0,0,0,.25);text-align:center}
+html.ng-light .msg{background:#fff; border:1px solid #e0d8b0;}
+
+.pj{font-weight:700;margin:12px 0 6px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15);text-align:justify;text-justify:inter-word}
+html.ng-light .pj{border-color:#d8cfa8}
+
+.pg{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap;text-align:justify;text-justify:inter-word}
+
+/* ===== PENCARIAN ===== */
+.sg{display:none;margin-top:4px;border:1px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;position:absolute;z-index:10;width:100%;background:#2a3829}
+html.ng-light .sg{background:#fff;border-color:#d8cfa8}
+.sg.on{display:block}
+.sg .li{margin:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08); padding: 9px 10px; cursor: pointer;}
+
+select.ph{border-color:#c9b86a !important;color:#c9b86a !important;font-weight:700}
+html.ng-light select.ph{color:#6b5a1a !important;border-color:#b8a24a !important}
+
 /* ===== MODE ARAB SAJA ===== */
-/* Sembunyikan teks non-Arab */
+/* Sembunyikan teks latin */
 html.ng-arab .lt,
 html.ng-arab .tr,
 html.ng-arab .tn,
@@ -10,43 +116,26 @@ html.ng-arab .pj {
     display: none !important;
 }
 
-/* 1. Kunci tampilan Bar & Pencarian agar tidak rusak */
-html.ng-arab .bar {
-    display: flex !important;
-    gap: 8px !important;
-    flex-wrap: nowrap !important;
-}
-html.ng-arab input,
-html.ng-arab select {
-    border-radius: 10px !important;
-    padding: 9px 10px !important;
-    font: inherit !important;
+/* Paksa kotak pembungkus tetap kokoh dan rata kanan-kiri */
+html.ng-arab .ic {
+    display: block !important;
+    overflow: hidden !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    text-last-align: right !important;
+    line-height: 2 !important;
 }
 
-/* 2. Paksa kotak .ic agar membungkus teks yang menyatu (tidak runtuh) */
-html.ng-arab .ic{
-    display: flow-root; /* Ini kuncinya agar kotak tidak hilang */
-    text-align: justify;
-    text-justify: inter-word;
-    text-last-align: right;
-    line-height: 2;
-    margin-bottom: 10px;
-    padding: 12px;
-    border-radius: 12px;
-    background: rgba(0,0,0,.25); /* Paksa background kotak gelap muncul */
-}
-html.ng-light.ng-arab .ic {
-    background: #fff; /* Background putih kalau mode terang */
+/* Teks Arab menyatu (inline) */
+html.ng-arab .ar {
+    display: inline !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 2 !important;
 }
 
-/* 3. Teks Arab menyatu (inline) */
-html.ng-arab .ar{
-    display: inline;
-    white-space: normal;
-    margin: 0;
-    padding: 0;
-    line-height: 2;
-}
-html.ng-arab .ar::after{
-    content: " "; /* Spasi antar ayat */
+/* Spasi antar ayat biar tidak nempel */
+html.ng-arab .ar::after {
+    content: " " !important;
 }
