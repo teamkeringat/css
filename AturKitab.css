@@ -1,8 +1,7 @@
 /* =========================================================
    ATUR-KITAB.CSS
-   Semua style untuk Kitab Kuning
+   Kitab Kuning — Layout: 1 kotak cari + 2 dropdown (diam)
    Lokasi: https://teamkeringat.github.io/Atur-Kitab.css
-   Layout: 1 kotak cari (full) + 2 dropdown (50:50)
    ========================================================= */
 
 /* ===== FONT ARAB ===== */
@@ -49,7 +48,7 @@ button{cursor:pointer}
   display:block;
 }
 
-/* ===== BARIS 2: DUA DROPDOWN SEJAJAR (50:50) ===== */
+/* ===== BARIS 2: DUA DROPDOWN (50:50) ===== */
 .bar-pilih{
   display:flex;
   gap:8px;
@@ -88,7 +87,6 @@ html.ng-light .sg{background:#fff;border-color:#d8cfa8}
 .ic{padding:12px;border-radius:12px;background:rgba(0,0,0,.25);margin-bottom:10px}
 html.ng-light .ic{background:#fff}
 
-/* Arab - Teks Utama */
 .ar{
   direction:rtl;
   text-align:right;
@@ -100,7 +98,6 @@ html.ng-light .ic{background:#fff}
 }
 html.ng-light .ar{color:#222}
 
-/* Arab - Pelengkap */
 .ap{
   direction:rtl;
   text-align:right;
@@ -111,7 +108,6 @@ html.ng-light .ar{color:#222}
 }
 html.ng-light .ap{color:#222}
 
-/* Latin / Terjemahan */
 .lt{
   color:#c9bd8a;
   font-size:calc(.9rem * var(--z,1));
@@ -122,14 +118,12 @@ html.ng-light .ap{color:#222}
 }
 html.ng-light .lt{color:#6b5a1a}
 
-/* Terjemah */
 .tr{
   font-size:calc(1rem * var(--z,1));
   line-height:1.55;
   white-space:pre-wrap;
 }
 
-/* Tanbih / Catatan */
 .tn{
   margin-top:8px;
   font-size:calc(.8rem * var(--z,1));
@@ -138,7 +132,6 @@ html.ng-light .lt{color:#6b5a1a}
   white-space:pre-wrap;
 }
 
-/* Bab Header */
 .bh{
   font-weight:700;
   margin:0 0 10px;
@@ -147,7 +140,6 @@ html.ng-light .lt{color:#6b5a1a}
 }
 html.ng-light .bh{border-color:#d8cfa8}
 
-/* Pesan / Message */
 .msg{
   padding:14px;
   border-radius:12px;
@@ -167,7 +159,9 @@ html.ng-light select.ph{
   border-color:#b8a24a;
 }
 
-/* ===== SEMBUNYIKAN TEKS INFO NGELINGAN ===== */
-#stat{
-  display:none !important;
-}
+/* =========================================================
+   ⬇️ PATCH TERAKHIR
+   ========================================================= */
+
+/* Sembunyikan teks info "Terhubung dengan pengaturan Ngelingan" */
+#stat{display:none !important}
