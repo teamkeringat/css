@@ -2,6 +2,7 @@
    ATUR-KITAB.CSS
    Semua style untuk Kitab Kuning
    Lokasi: https://teamkeringat.github.io/Atur-Kitab.css
+   Layout: 1 kotak cari (full) + 2 dropdown (50:50)
    ========================================================= */
 
 /* ===== FONT ARAB ===== */
@@ -12,13 +13,24 @@
 
 /* ===== DASAR ===== */
 html,body{background:#18241a;color:#e6ecdc;color-scheme:dark}
-body{padding:10px}
+body{padding:10px;margin:0}
 *{box-sizing:border-box}
 html.ng-light,html.ng-light body{background:#fffdf4;color:#222;color-scheme:light}
 
 /* ===== KONTROL UMUM ===== */
-input,select,button{font:inherit;color:#e6ecdc;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:9px 10px}
-html.ng-light input,html.ng-light select,html.ng-light button{color:#222;background:rgba(0,0,0,.05);border-color:#d8cfa8}
+input,select,button{
+  font:inherit;
+  color:#e6ecdc;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:10px;
+  padding:9px 10px;
+}
+html.ng-light input,html.ng-light select,html.ng-light button{
+  color:#222;
+  background:rgba(0,0,0,.05);
+  border-color:#d8cfa8;
+}
 select option{color:#222}
 button{cursor:pointer}
 
@@ -37,7 +49,7 @@ button{cursor:pointer}
   display:block;
 }
 
-/* ===== BARIS 2: DUA DROPDOWN SEJAJAR ===== */
+/* ===== BARIS 2: DUA DROPDOWN SEJAJAR (50:50) ===== */
 .bar-pilih{
   display:flex;
   gap:8px;
@@ -53,27 +65,104 @@ button{cursor:pointer}
 
 /* ===== SEARCH SUGGESTION ===== */
 .srch-wrap{position:relative}
-.sg{display:none;margin-top:4px;border:1px solid rgba(255,255,255,.18);border-radius:10px;overflow:hidden;position:absolute;z-index:10;width:100%;background:#2a3829}
+.sg{
+  display:none;
+  margin-top:4px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;
+  overflow:hidden;
+  position:absolute;
+  z-index:10;
+  width:100%;
+  background:#2a3829;
+}
 html.ng-light .sg{background:#fff;border-color:#d8cfa8}
 .sg.on{display:block}
-.sg .li{margin:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08)}
+.sg .li{
+  margin:0;
+  border-radius:0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
 
 /* ===== DESAIN ISI KITAB ===== */
 .ic{padding:12px;border-radius:12px;background:rgba(0,0,0,.25);margin-bottom:10px}
 html.ng-light .ic{background:#fff}
-.ar{direction:rtl;text-align:right;font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);font-size:calc(1.75rem * var(--z,1));line-height:2.3;color:#eef2e6;white-space:pre-wrap}
+
+/* Arab - Teks Utama */
+.ar{
+  direction:rtl;
+  text-align:right;
+  font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);
+  font-size:calc(1.75rem * var(--z,1));
+  line-height:2.3;
+  color:#eef2e6;
+  white-space:pre-wrap;
+}
 html.ng-light .ar{color:#222}
-.ap{direction:rtl;text-align:right;font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);font-size:calc(1.1rem * var(--z,1));line-height:1.9;opacity:.85}
+
+/* Arab - Pelengkap */
+.ap{
+  direction:rtl;
+  text-align:right;
+  font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);
+  font-size:calc(1.1rem * var(--z,1));
+  line-height:1.9;
+  opacity:.85;
+}
 html.ng-light .ap{color:#222}
-.lt{color:#c9bd8a;font-size:calc(.9rem * var(--z,1));font-style:italic;margin:6px 0;line-height:1.5;white-space:pre-wrap}
+
+/* Latin / Terjemahan */
+.lt{
+  color:#c9bd8a;
+  font-size:calc(.9rem * var(--z,1));
+  font-style:italic;
+  margin:6px 0;
+  line-height:1.5;
+  white-space:pre-wrap;
+}
 html.ng-light .lt{color:#6b5a1a}
-.tr{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap}
-.tn{margin-top:8px;font-size:calc(.8rem * var(--z,1));opacity:.7;line-height:1.45;white-space:pre-wrap}
-.bh{font-weight:700;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.15)}
+
+/* Terjemah */
+.tr{
+  font-size:calc(1rem * var(--z,1));
+  line-height:1.55;
+  white-space:pre-wrap;
+}
+
+/* Tanbih / Catatan */
+.tn{
+  margin-top:8px;
+  font-size:calc(.8rem * var(--z,1));
+  opacity:.7;
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+
+/* Bab Header */
+.bh{
+  font-weight:700;
+  margin:0 0 10px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
 html.ng-light .bh{border-color:#d8cfa8}
-.msg{padding:14px;border-radius:12px;background:rgba(0,0,0,.25);text-align:center}
+
+/* Pesan / Message */
+.msg{
+  padding:14px;
+  border-radius:12px;
+  background:rgba(0,0,0,.25);
+  text-align:center;
+}
 html.ng-light .msg{background:#fff}
 
-/* ===== DROPDOWN AKTIF ===== */
-select.ph{border-color:#c9b86a;color:#c9b86a;font-weight:700}
-html.ng-light select.ph{color:#6b5a1a;border-color:#b8a24a}
+/* ===== DROPDOWN AKTIF (placeholder emas) ===== */
+select.ph{
+  border-color:#c9b86a;
+  color:#c9b86a;
+  font-weight:700;
+}
+html.ng-light select.ph{
+  color:#6b5a1a;
+  border-color:#b8a24a;
+}
