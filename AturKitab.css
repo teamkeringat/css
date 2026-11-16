@@ -166,3 +166,8 @@ html.ng-light select.ph{
   color:#6b5a1a;
   border-color:#b8a24a;
 }
+
+/* ===== SEMBUNYIKAN TEKS INFO NGELINGAN ===== */
+#stat{
+  display:none !important;
+}
