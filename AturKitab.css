@@ -1,7 +1,5 @@
 /* =========================================================
-   ATUR-KITAB.CSS
-   Kitab Kuning — Layout: 1 kotak cari + 2 dropdown (diam)
-   Lokasi: https://teamkeringat.github.io/Atur-Kitab.css
+   ATURKITAB.CSS — 3 kotak FIX di atas, isi scroll di bawah
    ========================================================= */
 
 /* ===== FONT ARAB ===== */
@@ -12,9 +10,32 @@
 
 /* ===== DASAR ===== */
 html,body{background:#18241a;color:#e6ecdc;color-scheme:dark}
-body{padding:10px;margin:0}
+body{padding:0;margin:0}                 /* padding body dihapus */
 *{box-sizing:border-box}
 html.ng-light,html.ng-light body{background:#fffdf4;color:#222;color-scheme:light}
+
+/* =========================================================
+   🔒 TOOLBAR FIX — 3 KOTAK DIAM DI ATAS
+   ========================================================= */
+.toolbar-fix{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #18241a;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+html.ng-light .toolbar-fix{
+  background: #fffdf4;
+  border-bottom-color: #e0d8b8;
+}
+
+/* Tinggi toolbar ≈ 130px → beri padding-top di #main supaya tidak tertutup */
+#main{
+  padding: 140px 10px 20px;   /* 140px = ruang untuk toolbar fix */
+}
 
 /* ===== KONTROL UMUM ===== */
 input,select,button{
@@ -33,7 +54,7 @@ html.ng-light input,html.ng-light select,html.ng-light button{
 select option{color:#222}
 button{cursor:pointer}
 
-/* ===== BARIS 1: KOTAK CARI (full width) ===== */
+/* ===== BARIS 1: KOTAK CARI ===== */
 .bar-cari{
   display:flex;
   width:100%;
@@ -48,12 +69,11 @@ button{cursor:pointer}
   display:block;
 }
 
-/* ===== BARIS 2: DUA DROPDOWN (50:50) ===== */
+/* ===== BARIS 2: DUA DROPDOWN ===== */
 .bar-pilih{
   display:flex;
   gap:8px;
   width:100%;
-  margin-bottom:10px;
 }
 .bar-pilih select{
   flex:1 1 50%;
@@ -71,7 +91,7 @@ button{cursor:pointer}
   border-radius:10px;
   overflow:hidden;
   position:absolute;
-  z-index:10;
+  z-index:110;
   width:100%;
   background:#2a3829;
 }
@@ -88,80 +108,60 @@ html.ng-light .sg{background:#fff;border-color:#d8cfa8}
 html.ng-light .ic{background:#fff}
 
 .ar{
-  direction:rtl;
-  text-align:right;
+  direction:rtl;text-align:right;
   font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);
   font-size:calc(1.75rem * var(--z,1));
-  line-height:2.3;
-  color:#eef2e6;
-  white-space:pre-wrap;
+  line-height:2.3;color:#eef2e6;white-space:pre-wrap;
 }
 html.ng-light .ar{color:#222}
 
 .ap{
-  direction:rtl;
-  text-align:right;
+  direction:rtl;text-align:right;
   font-family:var(--arab,Arab1,'Amiri','Traditional Arabic',serif);
   font-size:calc(1.1rem * var(--z,1));
-  line-height:1.9;
-  opacity:.85;
+  line-height:1.9;opacity:.85;
 }
 html.ng-light .ap{color:#222}
 
 .lt{
   color:#c9bd8a;
   font-size:calc(.9rem * var(--z,1));
-  font-style:italic;
-  margin:6px 0;
-  line-height:1.5;
-  white-space:pre-wrap;
+  font-style:italic;margin:6px 0;
+  line-height:1.5;white-space:pre-wrap;
 }
 html.ng-light .lt{color:#6b5a1a}
 
-.tr{
-  font-size:calc(1rem * var(--z,1));
-  line-height:1.55;
-  white-space:pre-wrap;
-}
+.tr{font-size:calc(1rem * var(--z,1));line-height:1.55;white-space:pre-wrap}
 
 .tn{
   margin-top:8px;
   font-size:calc(.8rem * var(--z,1));
-  opacity:.7;
-  line-height:1.45;
-  white-space:pre-wrap;
+  opacity:.7;line-height:1.45;white-space:pre-wrap;
 }
 
 .bh{
-  font-weight:700;
-  margin:0 0 10px;
-  padding-bottom:6px;
+  font-weight:700;margin:0 0 10px;padding-bottom:6px;
   border-bottom:1px solid rgba(255,255,255,.15);
 }
 html.ng-light .bh{border-color:#d8cfa8}
 
 .msg{
-  padding:14px;
-  border-radius:12px;
-  background:rgba(0,0,0,.25);
-  text-align:center;
+  padding:14px;border-radius:12px;
+  background:rgba(0,0,0,.25);text-align:center;
 }
 html.ng-light .msg{background:#fff}
 
-/* ===== DROPDOWN AKTIF (placeholder emas) ===== */
+/* ===== DROPDOWN AKTIF ===== */
 select.ph{
-  border-color:#c9b86a;
-  color:#c9b86a;
-  font-weight:700;
+  border-color:#c9b86a;color:#c9b86a;font-weight:700;
 }
 html.ng-light select.ph{
-  color:#6b5a1a;
-  border-color:#b8a24a;
+  color:#6b5a1a;border-color:#b8a24a;
 }
 
 /* =========================================================
    ⬇️ PATCH TERAKHIR
    ========================================================= */
 
-/* Sembunyikan teks info "Terhubung dengan pengaturan Ngelingan" */
+/* Sembunyikan info Ngelingan */
 #stat{display:none !important}
