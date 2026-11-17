@@ -184,18 +184,22 @@ html.ng-light .sg .li:hover { background: #f5f5f5; }
 
 
 /* =========================================================
-   TAMBAHKAN KODE INI DI PALING BAWAH FILE
+   FITUR TOMBOL BENDERA (Sembunyikan Arab / Latin)
    ========================================================= */
 
-/* Jika mode ARAB SAJA aktif (Sembunyikan latin/arti) */
+/* 1. Jika mode ARAB SAJA aktif */
 html.ng-arab .tr, 
 html.ng-arab .lt, 
 html.ng-arab .tn,
-html.ng-arab .bh {
+html.ng-arab .pg,
+html.ng-arab .pj,
+html.ng-arab .nm,
+html.ng-arab .hd,
+html.ng-arab .msg {
     display: none !important;
 }
 
-/* Jika mode LATIN SAJA aktif (Sembunyikan tulisan Arab) */
+/* 2. Jika mode LATIN SAJA aktif (Sembunyikan tulisan Arab) */
 html.ng-latin .ar, 
 html.ng-latin .ap {
     display: none !important;
