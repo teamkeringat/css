@@ -1,5 +1,5 @@
 /* =========================================================
-   ATURKITAB.CSS — Pola Asmaul Husna (Bebas Fixed, Bebas Flex)
+   ATURKITAB.CSS — Layout Terkunci (Fixed Atas, Scroll Bawah)
    ========================================================= */
 
 @font-face{font-family:Arab1;src:url('https://teamkeringat.github.io/Files/arbutsman.otf') format('opentype');font-display:swap}
@@ -15,31 +15,41 @@ html, body {
   margin: 0; 
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden; /* Kunci scroll di body */
+  height: 100dvh;   /* Gunakan tinggi layar HP yang presisi */
 }
 * { box-sizing: border-box; }
 
 html.ng-light, html.ng-light body { background: #fffdf4; color: #222; color-scheme: light; }
 
-/* LEPAS SEMUA KUNCIAN FLEXBOX DARI KERANGKA NGELINGAN */
+/* ===== APP CONTAINER ===== */
 #app {
-  display: block !important;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 100%;
-  height: auto !important;
-  min-height: 100vh;
-  overflow: visible !important;
-  padding: 10px 12px 90px 12px; /* Jarak aman kiri-kanan dan bawah */
+  height: 100%;
+  padding: 10px 12px; 
 }
 
 /* =========================================================
-   KOTAK KONTROL (Tidak pakai fixed, mengalir biasa)
+   🛠️ PANEL KONTROL (3 KOTAK DIAM)
    ========================================================= */
 .toolbar-fix {
+  flex: 0 0 auto; /* Jangan ikut memanjang */
+  background: #1e2f22;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
-  margin-bottom: 16px; /* Jarak ke konten di bawahnya */
+  margin-bottom: 12px;
+  z-index: 10;
+}
+html.ng-light .toolbar-fix {
+  background: #fff;
+  border-color: #d8cfa8;
 }
 
 /* Baris Cari */
@@ -88,11 +98,14 @@ html.ng-light .bar-pilih select {
 select option { color: #222; background: #fff; }
 
 /* =========================================================
-   AREA ISI KITAB (#main)
+   AREA ISI KITAB (SCROLL SENDIRI DI BAWAHNYA)
    ========================================================= */
 #main {
-  width: 100%;
-  display: block;
+  flex: 1 1 0; /* Mengisi sisa ruang yang ada */
+  overflow-y: auto; /* Hanya bagian ini yang di-scroll */
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
+  padding: 0 0 90px 0; /* Padding bawah agar tidak tertutup footer */
 }
 
 /* Kotak Info Kitab */
