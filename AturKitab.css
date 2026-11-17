@@ -178,3 +178,25 @@ html.ng-light .sg .li:hover { background: #f5f5f5; }
 .sg .li .gp { font-size: 0.8rem; opacity: 0.7; margin-top: 4px; }
 
 #stat { display: none !important; }
+/* ... (kode-kode CSS sebelumnya di atas) ... */
+
+#stat { display: none !important; }
+
+
+/* =========================================================
+   TAMBAHKAN KODE INI DI PALING BAWAH FILE
+   ========================================================= */
+
+/* Jika mode ARAB SAJA aktif (Sembunyikan latin/arti) */
+html.ng-arab .tr, 
+html.ng-arab .lt, 
+html.ng-arab .tn,
+html.ng-arab .bh {
+    display: none !important;
+}
+
+/* Jika mode LATIN SAJA aktif (Sembunyikan tulisan Arab) */
+html.ng-latin .ar, 
+html.ng-latin .ap {
+    display: none !important;
+}
